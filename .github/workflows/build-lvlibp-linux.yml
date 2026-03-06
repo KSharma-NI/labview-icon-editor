@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Build PPL with Docker
-        uses: ./build-lvlibp-docker
+        uses: KSharma-NI/open-source/build-lvlibp-docker-linux@users/krishsha/build-lvlibp-docker
         with:
           minimum_supported_lv_version: '2026'
           supported_bitness: '64'
