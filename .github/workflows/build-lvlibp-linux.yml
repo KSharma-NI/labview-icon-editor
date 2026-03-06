@@ -1,0 +1,63 @@
+name: Build LVLIBP with Docker
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - release-alpha/*
+      - release-beta/*
+      - release-rc/*
+      - hotfix/*
+  pull_request:
+    branches:
+      - main
+      - develop
+      - release-alpha/*
+      - release-beta/*
+      - release-rc/*
+      - hotfix/*
+  workflow_dispatch:
+
+jobs:
+  build-lvlibp:
+    name: Build LabVIEW Packed Library
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Build PPL with Docker
+        uses: ./build-lvlibp-docker
+        with:
+          minimum_supported_lv_version: '2026'
+          supported_bitness: '64'
+          project_path: 'lv_icon_editor.lvproj'
+          target_name: 'My Computer'
+          build_spec_name: 'Editor Packed Library'
+          major: 1
+          minor: 0
+          patch: 0
+          build: 0
+          commit: ${{ github.sha }}
+          docker_image: 'nationalinstruments/labview'
+          image_tag: '2026q1-linux'
+
+      - name: Upload Built PPL
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: lvlibp-artifacts
+          path: |
+            **/*.lvlibp
+          retention-days: 7
+
+      - name: Upload Build Logs
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: build-logs
+          path: |
+            **/*.log
+          retention-days: 3
