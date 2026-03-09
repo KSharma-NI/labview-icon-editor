@@ -44,7 +44,7 @@ jobs:
           build: 0
           commit: ${{ github.sha }}
           docker_image: 'nationalinstruments/labview'
-          image_tag: '2026-windows'
+          image_tag: '2026q1-windows'
           log_level: 'INFO'
 
       - name: Upload Built PPL
