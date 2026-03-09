@@ -43,7 +43,7 @@ jobs:
           "build=${{ github.run_number }}" >> $env:GITHUB_OUTPUT
 
       - name: Build PPL with Windows Docker
-        uses: ./build-lvlibp-docker-windows
+        uses: KSharma-NI/open-source/build-lvlibp-docker-windows@users/krishsha/build-lvlibp-docker
         with:
           minimum_supported_lv_version: '2026'
           supported_bitness: '64'
