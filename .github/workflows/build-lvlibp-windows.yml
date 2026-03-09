@@ -30,18 +30,6 @@ jobs:
         with:
           fetch-depth: 0  # Fetch all history for commit info
 
-      - name: Extract version from package.json
-        id: version
-        shell: pwsh
-        run: |
-          $packageJson = Get-Content package.json | ConvertFrom-Json
-          $version = $packageJson.version
-          $parts = $version -split '\.'
-          "major=$($parts[0])" >> $env:GITHUB_OUTPUT
-          "minor=$($parts[1])" >> $env:GITHUB_OUTPUT
-          "patch=$($parts[2])" >> $env:GITHUB_OUTPUT
-          "build=${{ github.run_number }}" >> $env:GITHUB_OUTPUT
-
       - name: Build PPL with Windows Docker
         uses: KSharma-NI/open-source/build-lvlibp-docker-windows@users/krishsha/build-lvlibp-docker
         with:
@@ -50,10 +38,10 @@ jobs:
           project_path: 'lv_icon_editor.lvproj'
           target_name: 'My Computer'
           build_spec_name: 'Editor Packed Library'
-          major: ${{ steps.version.outputs.major }}
-          minor: ${{ steps.version.outputs.minor }}
-          patch: ${{ steps.version.outputs.patch }}
-          build: ${{ steps.version.outputs.build }}
+          major: 1
+          minor: 0
+          patch: 0
+          build: 0
           commit: ${{ github.sha }}
           docker_image: 'nationalinstruments/labview'
           image_tag: '2026-windows'
