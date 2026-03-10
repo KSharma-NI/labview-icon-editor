@@ -40,6 +40,12 @@ jobs:
           package_id: 'LabVIEW_COM_PKG 25.0300'
           log_level: 'DEBUG'
 
+      - name: Configure LabVIEW
+        uses: KSharma-NI/open-source/configure-labview@users/krishsha/run-unit-tests-action
+        with:
+          labview_version: '2025'
+          log_level: 'DEBUG'
+
       - name: Build PPL
         uses: KSharma-NI/open-source/build-lvlibp-win32@users/krishsha/build-lvlibp-win32
         with:
