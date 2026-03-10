@@ -1,4 +1,4 @@
-name: Build LVLIBP with Docker (Windows x86)
+name: Build LVLIBP with Github Runner (Windows x86)
 
 on:
   push:
@@ -41,7 +41,7 @@ jobs:
           log_level: 'DEBUG'
 
       - name: Build PPL
-        uses: KSharma-NI/open-source/build-lvlibp-win32@users/krishsha/run-unit-tests-action
+        uses: KSharma-NI/open-source/build-lvlibp-win32@users/krishsha/build-lvlibp-win32
         with:
           minimum_supported_lv_version: '2025'
           supported_bitness: '32'
