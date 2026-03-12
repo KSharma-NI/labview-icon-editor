@@ -47,7 +47,7 @@ jobs:
           log_level: 'DEBUG'
 
       - name: Build PPL
-        uses: KSharma-NI/open-source/build-lvlibp-win32@users/krishsha/build-lvlibp-win32
+        uses: KSharma-NI/open-source/build-lvlibp-win32@users/krishsha/build-lvlibp-action
         with:
           minimum_supported_lv_version: '2025'
           supported_bitness: '32'
@@ -65,7 +65,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: success()
         with:
-          name: lv_icon_x86_v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}.${{ github.run_number }}+g${{ github.sha }}
+          name: lv_icon_x86_v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}.${{ steps.version.outputs.build }}+g${{ github.sha }}
           path: builds/*.lvlibp
           retention-days: 7
 
