@@ -36,10 +36,6 @@ jobs:
           minimum_supported_lv_version: '2026'
           supported_bitness: '64'
           project_path: 'lv_icon_editor.lvproj'
-          major: 2
-          minor: 3
-          patch: 0
-          build: 0
           commit: ${{ github.sha }}
           docker_image: 'nationalinstruments/labview'
           image_tag: '2026q1-windows'
