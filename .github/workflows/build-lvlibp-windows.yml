@@ -36,10 +36,8 @@ jobs:
           minimum_supported_lv_version: '2026'
           supported_bitness: '64'
           project_path: 'lv_icon_editor.lvproj'
-          target_name: 'My Computer'
-          build_spec_name: 'Editor Packed Library'
-          major: 1
-          minor: 0
+          major: 2
+          minor: 3
           patch: 0
           build: 0
           commit: ${{ github.sha }}
