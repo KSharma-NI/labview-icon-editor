@@ -36,6 +36,10 @@ jobs:
           project_path: 'lv_icon_editor.lvproj'
           target_name: 'My Computer'
           build_spec_name: 'Editor Packed Library'
+          major: 1
+          minor: 0
+          patch: 0
+          build: 0
           commit: ${{ github.sha }}
           docker_image: 'nationalinstruments/labview'
           image_tag: '2026q1-linux'
