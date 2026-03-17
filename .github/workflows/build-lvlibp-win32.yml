@@ -47,7 +47,7 @@ jobs:
           log_level: 'DEBUG'
 
       - name: Build PPL
-        uses: KSharma-NI/open-source/build-lvlibp-win32@users/krishsha/build-lvlibp-action
+        uses: KSharma-NI/open-source/build-lvlibp-github-hosted-windows@users/krishsha/build-lvlibp-action
         with:
           minimum_supported_lv_version: '2025'
           supported_bitness: '32'
