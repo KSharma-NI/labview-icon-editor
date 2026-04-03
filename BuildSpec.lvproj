@@ -29,21 +29,23 @@
 				<Property Name="Bld_excludeInlineSubVIs" Type="Bool">true</Property>
 				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
 				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
-				<Property Name="Bld_localDestDir" Type="Path">../builds/NI_AB_PROJECTNAME/My Application</Property>
-				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../builds/My Application</Property>
+				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{C287B585-79A5-4443-B5C0-3E82EBA07B28}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">1</Property>
 				<Property Name="Bld_version.patch" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">Application.exe</Property>
-				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/My Application/Application.exe</Property>
+				<Property Name="Destination[0].path" Type="Path">../builds/My Application/Application.exe</Property>
+				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="Destination[0].type" Type="Str">App</Property>
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
-				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/My Application/data</Property>
+				<Property Name="Destination[1].path" Type="Path">../builds/My Application/data</Property>
+				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{53819770-675F-412F-9E1D-63C672F429DD}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{C3DB3457-F98D-454D-AF14-861C7A735CB8}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Buildspec1.vi</Property>
@@ -89,7 +91,7 @@
 				<Property Name="Dll_headerGUID" Type="Str">{7C3EA6D7-D172-4E94-9C14-267DD6A8C56F}</Property>
 				<Property Name="Dll_libGUID" Type="Str">{0E1E926B-A753-4183-BC24-26758A91121E}</Property>
 				<Property Name="Dll_privateExecSys" Type="Bool">true</Property>
-				<Property Name="Source[0].itemID" Type="Str">{53819770-675F-412F-9E1D-63C672F429DD}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{C3DB3457-F98D-454D-AF14-861C7A735CB8}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Buildspec1.vi</Property>
@@ -116,19 +118,21 @@
 				<Property Name="Bld_excludeInlineSubVIs" Type="Bool">true</Property>
 				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
 				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
-				<Property Name="Bld_localDestDir" Type="Path">../builds/NI_AB_PROJECTNAME/My Framework Assembly</Property>
-				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../builds/My Framework Assembly</Property>
+				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{BB818014-F8B2-4F88-92D1-858AD0B1EE7B}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">1</Property>
 				<Property Name="Bld_version.patch" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">FrameworkAssembly.dll</Property>
-				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/My Framework Assembly/FrameworkAssembly.dll</Property>
+				<Property Name="Destination[0].path" Type="Path">../builds/My Framework Assembly/FrameworkAssembly.dll</Property>
+				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="Destination[0].type" Type="Str">App</Property>
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
-				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/My Framework Assembly/data</Property>
+				<Property Name="Destination[1].path" Type="Path">../builds/My Framework Assembly/data</Property>
+				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="DotNET2011CompatibilityMode" Type="Bool">false</Property>
 				<Property Name="DotNETAssembly_ClassName" Type="Str">LabVIEWExports</Property>
@@ -137,7 +141,7 @@
 				<Property Name="DotNETAssembly_signAssembly" Type="Bool">false</Property>
 				<Property Name="DotNETAssembly_StrongNameKeyFileItemID" Type="Ref">/</Property>
 				<Property Name="DotNETAssembly_StrongNameKeyGUID" Type="Str">{A332202B-748A-4C9B-9381-D62F07EA253B}</Property>
-				<Property Name="Source[0].itemID" Type="Str">{53819770-675F-412F-9E1D-63C672F429DD}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{C3DB3457-F98D-454D-AF14-861C7A735CB8}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].ExportedAssemblyVI.VIProtoInfo[0]MethodName" Type="Str">Buildspec1</Property>
@@ -176,8 +180,8 @@
 				<Property Name="DistPart[0].upgradeCode" Type="Str">{9A9FE130-6C4C-498B-A054-CEB195F36BB4}</Property>
 				<Property Name="DistPartCount" Type="Int">1</Property>
 				<Property Name="INST_autoIncrement" Type="Bool">true</Property>
-				<Property Name="INST_buildLocation" Type="Path">../builds/BuildSpec/My Installer</Property>
-				<Property Name="INST_buildLocation.type" Type="Str">relativeToCommon</Property>
+				<Property Name="INST_buildLocation" Type="Path">../builds/My Installer</Property>
+				<Property Name="INST_buildLocation.type" Type="Str">relativeToProject</Property>
 				<Property Name="INST_buildSpecName" Type="Str">My Installer</Property>
 				<Property Name="INST_defaultDir" Type="Str">{21CC2F85-ABA6-4EC0-85AC-34CE29523C6C}</Property>
 				<Property Name="INST_installerName" Type="Str">install.exe</Property>
@@ -245,8 +249,8 @@
 				<Property Name="PKG_homepage" Type="Str"></Property>
 				<Property Name="PKG_hostname" Type="Str"></Property>
 				<Property Name="PKG_maintainer" Type="Str">Unregistered &lt;&gt;</Property>
-				<Property Name="PKG_output" Type="Path">../builds/NI_AB_PROJECTNAME/My Package/Package</Property>
-				<Property Name="PKG_output.Type" Type="Str">relativeToCommon</Property>
+				<Property Name="PKG_output" Type="Path">../builds/My Package/Package</Property>
+				<Property Name="PKG_output.Type" Type="Str">relativeToProject</Property>
 				<Property Name="PKG_packageName" Type="Str">buildspec</Property>
 				<Property Name="PKG_publishToSystemLink" Type="Bool">false</Property>
 				<Property Name="PKG_section" Type="Str">Application Software</Property>
@@ -271,22 +275,24 @@
 				<Property Name="Bld_buildSpecName" Type="Str">My PPL</Property>
 				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
 				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
-				<Property Name="Bld_localDestDir" Type="Path">../builds/NI_AB_PROJECTNAME/My PPL</Property>
-				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../builds/My PPL</Property>
+				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{39C2CB90-3959-4BFF-9E3C-377B3147C162}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">1</Property>
 				<Property Name="Bld_version.patch" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">BuildSpecLib.lvlibp</Property>
-				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/My PPL/BuildSpecLib.lvlibp</Property>
+				<Property Name="Destination[0].path" Type="Path">../builds/My PPL/BuildSpecLib.lvlibp</Property>
+				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="Destination[0].type" Type="Str">App</Property>
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
-				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/My PPL</Property>
+				<Property Name="Destination[1].path" Type="Path">../builds/My PPL</Property>
+				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="PackedLib_callersAdapt" Type="Bool">true</Property>
-				<Property Name="Source[0].itemID" Type="Str">{53819770-675F-412F-9E1D-63C672F429DD}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{C3DB3457-F98D-454D-AF14-861C7A735CB8}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/BuildSpecLib.lvlib</Property>
@@ -321,19 +327,21 @@
 				<Property Name="Bld_excludedDirectory[5]" Type="Path">../LabVIEW Data/2026(64-bit)/ExtraVILib</Property>
 				<Property Name="Bld_excludedDirectory[5].pathType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_excludedDirectoryCount" Type="Int">6</Property>
-				<Property Name="Bld_localDestDir" Type="Path">../builds/NI_AB_PROJECTNAME/My Source Distribution</Property>
-				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../builds/My Source Distribution</Property>
+				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{D8EFD4CB-2B16-439A-A1A8-487C2C5A3244}</Property>
 				<Property Name="Bld_removeVIObj" Type="Int">2</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">1</Property>
 				<Property Name="Bld_version.patch" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">Destination Directory</Property>
-				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/My Source Distribution</Property>
+				<Property Name="Destination[0].path" Type="Path">../builds/My Source Distribution</Property>
+				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
-				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/My Source Distribution/data</Property>
+				<Property Name="Destination[1].path" Type="Path">../builds/My Source Distribution/data</Property>
+				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{53819770-675F-412F-9E1D-63C672F429DD}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{C3DB3457-F98D-454D-AF14-861C7A735CB8}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Buildspec1.vi</Property>
@@ -351,7 +359,7 @@
 				<Property Name="IncludedItemCount" Type="Int">1</Property>
 				<Property Name="IncludedItems[0]" Type="Ref">/My Computer</Property>
 				<Property Name="IncludeProject" Type="Bool">true</Property>
-				<Property Name="Path[0]" Type="Path">../../builds/BuildSpec/My Zip File/BuildSpec.zip</Property>
+				<Property Name="Path[0]" Type="Path">../builds/My Zip File/BuildSpec.zip</Property>
 				<Property Name="ZipBase" Type="Str">NI_zipbasedefault</Property>
 			</Item>
 		</Item>

@@ -152,7 +152,7 @@ jobs:
         if: success()
         with:
           name: all_specs_x64_v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}.${{ steps.version.outputs.build }}_${{ env.LV_VERSION }}-windows
-          path: C:\builds\BuildSpec\**\*  # was: builds/*.lvlibp
+          path: builds/**  # was: builds/*.lvlibp
           retention-days: 7
 
       - name: Upload Build Logs
