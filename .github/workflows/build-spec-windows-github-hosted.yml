@@ -1,4 +1,4 @@
-name: Build LVLIBP with Github Runner (Windows)
+name: Build Specs with Github Runner (Windows)
 
 on:
   workflow_dispatch:
