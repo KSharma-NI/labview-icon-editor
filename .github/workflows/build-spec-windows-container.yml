@@ -1,4 +1,4 @@
-name: Build LVLIBP with Docker (Windows)
+name: Build LabVIEW Build Specs with Docker (Windows)
 
 on:
   workflow_dispatch:
@@ -18,7 +18,7 @@ on:
 
 jobs:
   build-lvlibp:
-    name: Build LabVIEW Packed Library (Windows)
+    name: Build LabVIEW Build Specs (Windows)
     runs-on: windows-2022
 
     steps:
@@ -136,14 +136,13 @@ jobs:
             ) -join [Environment]::NewLine | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
           }
 
-      - name: Build PPL with Windows Docker
+      - name: Build Build Specs with Windows Docker
         uses: KSharma-NI/open-source/build-spec-docker-windows@users/krishsha/build-any-action
         with:
           minimum_supported_lv_version: '2026'
           supported_bitness: '64'
-          project_path: 'lv_icon_editor.lvproj'
+          project_path: 'BuildSpec.lvproj'
           target_name: 'My Computer'
-          build_spec_name: 'Editor Packed Library'
           major: ${{ steps.version.outputs.major }}
           minor: ${{ steps.version.outputs.minor }}
           patch: ${{ steps.version.outputs.patch }}
@@ -153,11 +152,11 @@ jobs:
           image_tag: '${{ env.LV_VERSION }}-windows'
           log_level: 'INFO'
 
-      - name: Upload Built PPL
+      - name: Upload Built Build Specs
         uses: actions/upload-artifact@v6
         if: success()
         with:
-          name: lv_icon_x64_v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}.${{ steps.version.outputs.build }}_${{ env.LV_VERSION }}-windows
+          name: all_specs_x64_v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}.${{ steps.version.outputs.build }}_${{ env.LV_VERSION }}-windows
           path: builds/*.lvlibp
           retention-days: 7
 
