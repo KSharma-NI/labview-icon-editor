@@ -219,7 +219,7 @@ jobs:
         if: success()
         with:
           name: all_specs_${{ env.ARCH }}_v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}.${{ steps.version.outputs.build }}_${{ env.LV_VERSION }}-windows-gh
-          path: builds/BuildSpec/**/*  # was: builds/*.lvlibp
+          path: C:\builds\BuildSpec\**\*  # was: builds/*.lvlibp
           retention-days: 7
 
       - name: Upload Build Logs
@@ -227,5 +227,5 @@ jobs:
         if: failure()
         with:
           name: build-logs-${{ env.ARCH }}_${{ env.LV_VERSION }}-windows-gh
-          path: build-logs/*.log
+          path: C:\Users\ContainerAdministrator\AppData\Local\Temp\*.log
           retention-days: 3
