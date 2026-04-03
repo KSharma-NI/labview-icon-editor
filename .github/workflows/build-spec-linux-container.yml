@@ -136,17 +136,12 @@ jobs:
             ) -join [Environment]::NewLine | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
           }
       
-      - name: Build PPL with Docker
+      - name: Build Spec with Docker
         uses: KSharma-NI/open-source/build-spec-docker-linux@users/krishsha/build-any-action
         with:
           minimum_supported_lv_version: '2026'
           supported_bitness: '64'
           project_path: 'BuildSpecLinux.lvproj'
-          target_name: 'My Computer'
-          major: ${{ steps.version.outputs.major }}
-          minor: ${{ steps.version.outputs.minor }}
-          patch: ${{ steps.version.outputs.patch }}
-          build: ${{ steps.version.outputs.build }}
           commit: ${{ github.sha }}
           docker_image: 'nationalinstruments/labview'
           image_tag: '${{ env.LV_VERSION }}-linux'
@@ -156,7 +151,7 @@ jobs:
         if: success()
         with:
           name: all_specs_x64_v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}.${{ steps.version.outputs.build }}_${{ env.LV_VERSION }}-linux
-          path: builds/*.lvlibp
+          path: builds/BuildSpecLinux/**/*  # was: builds/*.lvlibp
           retention-days: 7
 
       - name: Upload Build Logs

@@ -142,22 +142,17 @@ jobs:
           minimum_supported_lv_version: '2026'
           supported_bitness: '64'
           project_path: 'BuildSpec.lvproj'
-          target_name: 'My Computer'
-          major: ${{ steps.version.outputs.major }}
-          minor: ${{ steps.version.outputs.minor }}
-          patch: ${{ steps.version.outputs.patch }}
-          build: ${{ steps.version.outputs.build }}
           commit: ${{ github.sha }}
           docker_image: 'nationalinstruments/labview'
           image_tag: '${{ env.LV_VERSION }}-windows'
           log_level: 'INFO'
 
-      - name: Upload Built Build Specs
+      - name: Upload Built Build file
         uses: actions/upload-artifact@v6
         if: success()
         with:
           name: all_specs_x64_v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}.${{ steps.version.outputs.build }}_${{ env.LV_VERSION }}-windows
-          path: builds/*.lvlibp
+          path: builds/BuildSpec/**/*  # was: builds/*.lvlibp
           retention-days: 7
 
       - name: Upload Build Logs

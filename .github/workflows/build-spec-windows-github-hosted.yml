@@ -205,26 +205,21 @@ jobs:
             ) -join [Environment]::NewLine | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
           }
 
-      - name: Build PPL
+      - name: Build Specification
         uses: KSharma-NI/open-source/build-spec-github-hosted-windows@users/krishsha/build-any-action
         with:
           minimum_supported_lv_version: ${{ env.LV_YEAR }}
           supported_bitness: ${{ env.BITNESS }}
           project_path: 'BuildSpec.lvproj'
-          target_name: 'My Computer'
-          major: ${{ steps.version.outputs.major }}
-          minor: ${{ steps.version.outputs.minor }}
-          patch: ${{ steps.version.outputs.patch }}
-          build: ${{ steps.version.outputs.build }}
           commit: ${{ github.sha }}
           log_level: 'INFO'
 
-      - name: Upload Built PPL
+      - name: Upload Built file
         uses: actions/upload-artifact@v6
         if: success()
         with:
           name: all_specs_${{ env.ARCH }}_v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}.${{ steps.version.outputs.build }}_${{ env.LV_VERSION }}-windows-gh
-          path: builds/*.lvlibp
+          path: builds/BuildSpec/**/*  # was: builds/*.lvlibp
           retention-days: 7
 
       - name: Upload Build Logs
