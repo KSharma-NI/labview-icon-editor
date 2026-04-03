@@ -1,7 +1,8 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<Project Type="Project" LVVersion="26008000">
-	<Property Name="NI.LV.All.SaveVersion" Type="Str">26.0</Property>
+<Project Type="Project" LVVersion="20008000">
+	<Property Name="NI.LV.All.SaveVersion" Type="Str">20.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Property Name="NI.Project.Description" Type="Str"></Property>
 	<Item Name="My Computer" Type="My Computer">
 		<Property Name="server.app.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="server.control.propertiesEnabled" Type="Bool">true</Property>
@@ -134,7 +135,7 @@
 				<Property Name="DotNETAssembly_delayOSMsg" Type="Bool">true</Property>
 				<Property Name="DotNETAssembly_Namespace" Type="Str">FrameworkAssembly</Property>
 				<Property Name="DotNETAssembly_signAssembly" Type="Bool">false</Property>
-				<Property Name="DotNETAssembly_StrongNameKeyFileItemID" Type="Ref"></Property>
+				<Property Name="DotNETAssembly_StrongNameKeyFileItemID" Type="Ref">/</Property>
 				<Property Name="DotNETAssembly_StrongNameKeyGUID" Type="Str">{A332202B-748A-4C9B-9381-D62F07EA253B}</Property>
 				<Property Name="Source[0].itemID" Type="Str">{53819770-675F-412F-9E1D-63C672F429DD}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
@@ -169,38 +170,10 @@
 				<Property Name="Destination[0].tag" Type="Str">{21CC2F85-ABA6-4EC0-85AC-34CE29523C6C}</Property>
 				<Property Name="Destination[0].type" Type="Str">userFolder</Property>
 				<Property Name="DestinationCount" Type="Int">1</Property>
-				<Property Name="DistPart[0].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[0].productID" Type="Str">{E1E220CE-6734-409D-895B-30A4F55484A7}</Property>
-				<Property Name="DistPart[0].productName" Type="Str">NI LabVIEW Runtime 2026 Q1 (64-bit)</Property>
-				<Property Name="DistPart[0].SoftDep[0].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[0].SoftDep[0].productName" Type="Str">NI ActiveX Container (64-bit)</Property>
-				<Property Name="DistPart[0].SoftDep[0].upgradeCode" Type="Str">{1038A887-23E1-4289-B0BD-0C4B83C6BA21}</Property>
-				<Property Name="DistPart[0].SoftDep[1].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[0].SoftDep[1].productName" Type="Str">NI Deployment Framework 2026 (64-bit)</Property>
-				<Property Name="DistPart[0].SoftDep[1].upgradeCode" Type="Str">{E0D3C7F9-4512-438F-8123-E2050457972B}</Property>
-				<Property Name="DistPart[0].SoftDep[2].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[0].SoftDep[2].productName" Type="Str">NI LabVIEW Real-Time NBFifo 2026</Property>
-				<Property Name="DistPart[0].SoftDep[2].upgradeCode" Type="Str">{7C395ED3-8B24-3ED3-8DFC-B522BBB52781}</Property>
-				<Property Name="DistPart[0].SoftDep[3].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[0].SoftDep[3].productName" Type="Str">NI Logos 26.1</Property>
-				<Property Name="DistPart[0].SoftDep[3].upgradeCode" Type="Str">{5E4A4CE3-4D06-11D4-8B22-006008C16337}</Property>
-				<Property Name="DistPart[0].SoftDep[4].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[0].SoftDep[4].productName" Type="Str">NI LabVIEW Web Server 2026 (64-bit)</Property>
-				<Property Name="DistPart[0].SoftDep[4].upgradeCode" Type="Str">{5F449D4C-83B9-492E-986B-6B85A29C431D}</Property>
-				<Property Name="DistPart[0].SoftDep[5].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[0].SoftDep[5].productName" Type="Str">NI mDNS Responder 26.0</Property>
-				<Property Name="DistPart[0].SoftDep[5].upgradeCode" Type="Str">{9607874B-4BB3-42CB-B450-A2F5EF60BA3B}</Property>
-				<Property Name="DistPart[0].SoftDep[6].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[0].SoftDep[6].productName" Type="Str">Math Kernel Libraries 2020</Property>
-				<Property Name="DistPart[0].SoftDep[6].upgradeCode" Type="Str">{9872BBBA-FB96-42A4-80A2-9605AC5CBCF1}</Property>
-				<Property Name="DistPart[0].SoftDep[7].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[0].SoftDep[7].productName" Type="Str">NI VC2015 Runtime</Property>
-				<Property Name="DistPart[0].SoftDep[7].upgradeCode" Type="Str">{D42E7BAE-6589-4570-B6A3-3E28889392E7}</Property>
-				<Property Name="DistPart[0].SoftDep[8].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[0].SoftDep[8].productName" Type="Str">NI TDM Streaming 26.1</Property>
-				<Property Name="DistPart[0].SoftDep[8].upgradeCode" Type="Str">{4CD11BE6-6BB7-4082-8A27-C13771BC309B}</Property>
-				<Property Name="DistPart[0].SoftDepCount" Type="Int">9</Property>
-				<Property Name="DistPart[0].upgradeCode" Type="Str">{29DF0233-3D76-3B0E-A248-57E588E99083}</Property>
+				<Property Name="DistPart[0].flavorID" Type="Str"></Property>
+				<Property Name="DistPart[0].productID" Type="Str"></Property>
+				<Property Name="DistPart[0].productName" Type="Str">NI LabVIEW Run-Time Engine 2020 (64-bit)</Property>
+				<Property Name="DistPart[0].upgradeCode" Type="Str">{9A9FE130-6C4C-498B-A054-CEB195F36BB4}</Property>
 				<Property Name="DistPartCount" Type="Int">1</Property>
 				<Property Name="INST_autoIncrement" Type="Bool">true</Property>
 				<Property Name="INST_buildLocation" Type="Path">../builds/BuildSpec/My Installer</Property>
@@ -211,7 +184,7 @@
 				<Property Name="INST_productName" Type="Str">BuildSpec</Property>
 				<Property Name="INST_productVersion" Type="Str">1.1.1</Property>
 				<Property Name="InstSpecBitness" Type="Str">64-bit</Property>
-				<Property Name="InstSpecVersion" Type="Str">26302240</Property>
+				<Property Name="InstSpecVersion" Type="Str">20000000</Property>
 				<Property Name="MSI_autoselectDrivers" Type="Bool">true</Property>
 				<Property Name="MSI_distID" Type="Str">{F15984DC-306D-4246-B63C-C6A76999D2F7}</Property>
 				<Property Name="MSI_hideNonRuntimes" Type="Bool">true</Property>
@@ -248,7 +221,7 @@
 				<Property Name="NIPKG_installerDestination" Type="Path">../builds/NI_AB_PROJECTNAME/My Package/Package Installer</Property>
 				<Property Name="NIPKG_installerDestination.Type" Type="Str">relativeToCommon</Property>
 				<Property Name="NIPKG_lastBuiltPackage" Type="Str"></Property>
-				<Property Name="NIPKG_license" Type="Ref"></Property>
+				<Property Name="NIPKG_license" Type="Ref">/</Property>
 				<Property Name="NIPKG_packageVersion" Type="Bool">false</Property>
 				<Property Name="NIPKG_releaseNotes" Type="Str"></Property>
 				<Property Name="NIPKG_storeProduct" Type="Bool">false</Property>
