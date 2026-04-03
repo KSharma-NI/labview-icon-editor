@@ -1,25 +1,25 @@
-name: Build LVLIBP with Docker (Windows)
+name: Build Specs with Docker (Linux)
 
 on:
   workflow_dispatch:
     inputs:
       labview_version:
-        description: 'LabVIEW version'
+        description: 'LabVIEW version (e.g., 2025q3, 2026q1)'
         required: false
         default: '2026q1'
         type: string
   workflow_call:
     inputs:
       labview_version:
-        description: 'LabVIEW version'
+        description: 'LabVIEW version (e.g., 2025q3, 2026q1)'
         required: false
         default: '2026q1'
         type: string
 
 jobs:
   build-lvlibp:
-    name: Build LabVIEW Packed Library (Windows)
-    runs-on: windows-2022
+    name: Build LabVIEW Build Spec (Linux)
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -39,47 +39,47 @@ jobs:
           
           Write-Host "Requested LabVIEW version: $lvVersion"
           
-          # Parse version (e.g., 2026q1 -> year=2026, quarter=1)
+          # Parse version (e.g., 2025q3 -> year=2025, quarter=3)
           if ($lvVersion -match '^(\d{4})q([13])$') {
             $year = [int]$Matches[1]
             $quarter = [int]$Matches[2]
             Write-Host "Parsed: Year=$year, Quarter=$quarter"
           } else {
-            throw "Invalid LabVIEW version format: $lvVersion. Expected format: YYYYq1 or YYYYq3 (e.g., 2026q1, 2026q3)"
+            throw "Invalid LabVIEW version format: $lvVersion. Expected format: YYYYq1 or YYYYq3 (e.g., 2025q3, 2026q1)"
           }
           
-          # Minimum version for Windows Docker: 2026q1
-          $minYear = 2026
-          $minQuarter = 1
+          # Minimum version for Linux Docker: 2025q3
+          $minYear = 2025
+          $minQuarter = 3
           
           $isValid = ($year -gt $minYear) -or (($year -eq $minYear) -and ($quarter -ge $minQuarter))
           
           if (-not $isValid) {
             Write-Error @"
-          LabVIEW version $lvVersion is not available in Docker for Windows.
+          LabVIEW version $lvVersion is not available in Docker for Linux.
           
-          Minimum supported version: 2026q1
+          Minimum supported version: 2025q3
           
           Please either:
-          1. Use LabVIEW 2026q1 or later (e.g., 2026q1, 2026q3)
-          2. Use GitHub-hosted runners instead of Docker (see build-lvlibp-windows-github-hosted.yml)
+          1. Use LabVIEW 2025q3 or later (e.g., 2025q3, 2026q1)
+          2. Use GitHub-hosted runners instead of Docker
           
           Available Docker images: https://hub.docker.com/r/nationalinstruments/labview
           "@
             exit 1
           }
           
-          Write-Host "LabVIEW version $lvVersion is supported for Windows Docker builds"
+          Write-Host "LabVIEW version $lvVersion is supported for Linux Docker builds"
           echo "LV_VERSION=$lvVersion" >> $env:GITHUB_ENV
 
           if (-not [string]::IsNullOrWhiteSpace($env:GITHUB_STEP_SUMMARY)) {
             @(
-              '### Build LVLIBP — Windows Docker',
+              '### Build LVLIBP — Linux Docker',
               '',
               ('- LabVIEW version: `{0}`' -f $lvVersion),
-              '- Platform: `windows`',
+              '- Platform: `linux`',
               '- Bitness: `64`',
-              ('- Docker image: `nationalinstruments/labview:{0}-windows`' -f $lvVersion)
+              ('- Docker image: `nationalinstruments/labview:{0}-linux`' -f $lvVersion)
             ) -join [Environment]::NewLine | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
           }
 
@@ -135,29 +135,27 @@ jobs:
               ('- Resolved: `{0}.{1}.{2}.{3}`' -f $major, $minor, $patch, $build)
             ) -join [Environment]::NewLine | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
           }
-
-      - name: Build PPL with Windows Docker
-        uses: KSharma-NI/open-source/build-spec-docker-windows@users/krishsha/build-any-action
+      
+      - name: Build PPL with Docker
+        uses: KSharma-NI/open-source/build-spec-docker-linux@users/krishsha/build-any-action
         with:
           minimum_supported_lv_version: '2026'
           supported_bitness: '64'
-          project_path: 'lv_icon_editor.lvproj'
+          project_path: 'BuildSpec.lvproj'
           target_name: 'My Computer'
-          build_spec_name: 'Editor Packed Library'
           major: ${{ steps.version.outputs.major }}
           minor: ${{ steps.version.outputs.minor }}
           patch: ${{ steps.version.outputs.patch }}
           build: ${{ steps.version.outputs.build }}
           commit: ${{ github.sha }}
           docker_image: 'nationalinstruments/labview'
-          image_tag: '${{ env.LV_VERSION }}-windows'
-          log_level: 'INFO'
+          image_tag: '${{ env.LV_VERSION }}-linux'
 
-      - name: Upload Built PPL
+      - name: Upload Built Artifacts
         uses: actions/upload-artifact@v6
         if: success()
         with:
-          name: lv_icon_x64_v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}.${{ steps.version.outputs.build }}_${{ env.LV_VERSION }}-windows
+          name: all_specs_x64_v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}.${{ steps.version.outputs.build }}_${{ env.LV_VERSION }}-linux
           path: builds/*.lvlibp
           retention-days: 7
 
@@ -165,6 +163,7 @@ jobs:
         uses: actions/upload-artifact@v6
         if: failure()
         with:
-          name: build-logs-windows-${{ env.LV_VERSION }}-windows
-          path: build-logs/*.log
+          name: build-logs-linux-${{ env.LV_VERSION }}-linux
+          path: |
+            **/*.log
           retention-days: 3

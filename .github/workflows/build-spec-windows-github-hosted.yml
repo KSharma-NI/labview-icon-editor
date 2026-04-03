@@ -210,9 +210,8 @@ jobs:
         with:
           minimum_supported_lv_version: ${{ env.LV_YEAR }}
           supported_bitness: ${{ env.BITNESS }}
-          project_path: 'lv_icon_editor.lvproj'
+          project_path: 'BuildSpec.lvproj'
           target_name: 'My Computer'
-          build_spec_name: 'Editor Packed Library'
           major: ${{ steps.version.outputs.major }}
           minor: ${{ steps.version.outputs.minor }}
           patch: ${{ steps.version.outputs.patch }}
@@ -224,7 +223,7 @@ jobs:
         uses: actions/upload-artifact@v6
         if: success()
         with:
-          name: lv_icon_${{ env.ARCH }}_v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}.${{ steps.version.outputs.build }}_${{ env.LV_VERSION }}-windows-gh
+          name: all_specs_${{ env.ARCH }}_v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}.${{ steps.version.outputs.build }}_${{ env.LV_VERSION }}-windows-gh
           path: builds/*.lvlibp
           retention-days: 7
 

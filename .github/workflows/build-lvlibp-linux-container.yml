@@ -137,7 +137,7 @@ jobs:
           }
       
       - name: Build PPL with Docker
-        uses: ni/open-source/build-lvlibp-docker-linux@actions
+        uses: KSharma-NI/open-source/build-spec-docker-linux@users/krishsha/build-any-action
         with:
           minimum_supported_lv_version: '2026'
           supported_bitness: '64'
