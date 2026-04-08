@@ -1,0 +1,58 @@
+name: Build LVLIBP with Windows Docker
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - release-alpha/*
+      - release-beta/*
+      - release-rc/*
+      - hotfix/*
+  pull_request:
+    branches:
+      - main
+      - develop
+      - release-alpha/*
+      - release-beta/*
+      - release-rc/*
+      - hotfix/*
+  workflow_dispatch:
+
+jobs:
+  build-lvlibp:
+    name: Build LabVIEW Packed Library (Windows)
+    runs-on: windows-2022
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for commit info
+
+      - name: Build PPL with Windows Docker
+        uses: KSharma-NI/open-source/build-lvlibp-docker-windows@users/krishsha/build-lvlibp-action
+        with:
+          minimum_supported_lv_version: '2026'
+          supported_bitness: '64'
+          project_path: 'lv_icon_editor.lvproj'
+          commit: ${{ github.sha }}
+          docker_image: 'nationalinstruments/labview'
+          image_tag: '2026q1-windows'
+          log_level: 'INFO'
+
+      - name: Upload Built PPL
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: lv_icon_x64_v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}.${{ steps.version.outputs.build }}+g${{ github.sha }}
+          path: builds/*.lvlibp
+          retention-days: 7
+
+      - name: Upload Build Logs
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: build-logs
+          path: build-logs/*.log
+          retention-days: 3
